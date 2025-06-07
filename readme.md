@@ -20,7 +20,7 @@ The core analysis engine is written in Rust and compiled to WebAssembly, allowin
 
 
 
-**[Live Demo](https://jeffasante.github.io/wasm-inspector/web/)** 
+**[Live Demo](https://jeffasante.github.io/wasm-inspector/)** 
 
 
 
