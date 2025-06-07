@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WASM Inspector</title>
+    <!-- Import JetBrains Mono font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <!-- Minimalist header, can be enhanced -->
+            WASM Inspector
+        </header>
+
+        <main class="app-main">
+            <section id="upload-module" class="content-block">
+                <h2 class="block-title">Upload Module</h2>
+                <div id="drop-zone" class="interactive-area">
+                    <p>Drag & drop .wasm file or click</p>
+                    <input type="file" id="file-input" accept=".wasm" style="display: none;">
+                </div>
+                <div id="upload-status" class="status-text"></div>
+                <div id="file-details" class="file-info-bar" style="display:none;">
+                    <span id="file-name-display"></span> | <span id="file-size-display"></span> bytes
+                </div>
+            </section>
+
+            <section id="analysis-output" class="analysis-container" style="display:none;">
+                <nav class="tab-navigation">
+                    <button class="tab-link active" data-tab="summary">Summary</button>
+                    <button class="tab-link" data-tab="structure">Structure</button>
+                    <button class="tab-link" data-tab="call-graph">Call Graph</button>
+                    <button class="tab-link" data-tab="security">Security</button>
+                    <button class="tab-link" data-tab="performance">Performance</button>
+                    <button class="tab-link" data-tab="memory">Memory</button>
+                    <button class="tab-link" data-tab="compatibility">Compatibility</button>
+                    <button class="tab-link" data-tab="raw-json">Raw Data</button>
+                </nav>
+
+                <div class="tab-content-area">
+                    <div id="summary" class="tab-pane active content-block">
+                        <h3 class="pane-title">Module Summary</h3>
+                        <div class="info-grid" id="summary-info-grid">
+                            <!-- JS will populate this -->
+                        </div>
+                    </div>
+
+                    <div id="structure" class="tab-pane content-block">
+                        <h3 class="pane-title">Module Structure</h3>
+                        <div id="structure-details">
+                            <!-- JS will populate this with tables/lists -->
+                        </div>
+                    </div>
+
+                    <div id="call-graph" class="tab-pane content-block">
+                        <h3 class="pane-title">Call Graph</h3>
+                        <div class="visualization-wrapper" id="call-graph-wrapper">
+                            <svg id="call-graph-svg"></svg>
+                        </div>
+                        <div id="call-graph-stats" class="stats-bar"></div>
+                    </div>
+
+                    <div id="security" class="tab-pane content-block">
+                        <h3 class="pane-title">Security Analysis</h3>
+                        <div id="security-details"></div>
+                    </div>
+
+                    <div id="performance" class="tab-pane content-block">
+                        <h3 class="pane-title">Performance Metrics</h3>
+                        <div id="performance-details" class="info-grid"></div>
+                    </div>
+
+                    <div id="memory" class="tab-pane content-block">
+                        <h3 class="pane-title">Memory Analysis</h3>
+                        <div id="memory-details"></div>
+                    </div>
+
+                    <div id="compatibility" class="tab-pane content-block">
+                        <h3 class="pane-title">Compatibility Matrix</h3>
+                        <div id="compatibility-details"></div>
+                    </div>
+                    
+                    <div id="raw-json" class="tab-pane content-block">
+                        <h3 class="pane-title">Raw Analysis Data (JSON)</h3>
+                        <pre id="raw-json-output"></pre>
+                    </div>
+                </div>
+            </section>
+        </main>
+                  <footer class="app-footer">
+            <p>By <a href="https://jeffasante.github.io/" target="_blank" rel="noopener noreferrer">Jeff Asante</a></p>
+        </footer>
+    </div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script type="module" src="./script.js"></script>
+</body>
+</html>

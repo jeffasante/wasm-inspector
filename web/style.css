@@ -1,0 +1,281 @@
+/* --- Aeonik Fono Inspired - Black & White with JetBrains Mono --- */
+
+:root {
+    --font-family-main: "JetBrains Mono", Consolas, monaco, monospace;
+    --background-color: #ffffff; /* White */
+    --text-color-primary: #000000; /* Black */
+    --text-color-secondary: #555555; /* Dark Gray */
+    --border-color-light: #e0e0e0; /* Light Gray for subtle borders */
+    --border-color-medium: #bbbbbb; /* Medium Gray for more distinct borders */
+    --interactive-bg-hover: #f5f5f5; /* Very light gray for hover */
+    --card-padding: 25px;
+    --border-radius: 8px; /* Consistent rounded corners */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family-main);
+    background-color: var(--background-color);
+    color: var(--text-color-primary);
+    line-height: 1.5; /* Adjusted for mono font */
+    font-size: 15px; /* Mono fonts can appear smaller */
+    padding: 20px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.app-container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.app-header {
+    text-align: left; /* Fono has left-aligned header text */
+    font-size: 2.8em; /* Larger, like Fono */
+    font-weight: 500; /* Medium weight */
+    padding-bottom: 25px;
+    margin-bottom: 35px;
+    border-bottom: 1px solid var(--border-color-light);
+}
+
+.app-main > section, .content-block { /* .content-block is the new card */
+    margin-bottom: 30px;
+}
+
+.content-block {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color-medium);
+    border-radius: var(--border-radius);
+    padding: var(--card-padding);
+}
+
+.block-title, .pane-title { /* Titles for cards/panes */
+    font-size: 1.4em; /* Slightly larger section titles */
+    font-weight: 500;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color-light);
+}
+
+#drop-zone.interactive-area {
+    border: 2px solid var(--border-color-medium); /* Solid, not dashed */
+    padding: 40px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    background-color: #fdfdfd; /* Slightly off-white */
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+#drop-zone.interactive-area:hover, #drop-zone.interactive-area.dragover {
+    background-color: var(--interactive-bg-hover);
+    border-color: var(--text-color-primary); /* Black border on hover */
+}
+#drop-zone.interactive-area p {
+    color: var(--text-color-secondary);
+    font-size: 1.1em;
+}
+
+.status-text {
+    margin-top: 15px;
+    padding: 10px 15px;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    text-align: center;
+    border: 1px solid transparent;
+}
+.status-text.success { background-color: #f0fff0; color: #006400; border-color: #90ee90; } /* Lighter green */
+.status-text.error { background-color: #fff0f0; color: #a00000; border-color: #ffc0cb; } /* Lighter red */
+.status-text.info { background-color: #f0f8ff; color: #00008b; border-color: #add8e6; } /* Lighter blue */
+
+.file-info-bar {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid var(--border-color-light);
+    border-radius: var(--border-radius);
+    font-size: 0.9em;
+    color: var(--text-color-secondary);
+}
+
+/* --- Tab Navigation (Aeonik Fono inspired: more subtle) --- */
+.tab-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px; /* Space before content */
+    border-bottom: 1px solid var(--border-color-medium);
+}
+.tab-link {
+    padding: 10px 18px; /* Slightly less padding */
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid transparent; /* Thicker active indicator */
+    font-size: 1em; /* Consistent font size */
+    font-weight: 500;
+    color: var(--text-color-secondary);
+    transition: color 0.2s ease, border-bottom-color 0.2s ease;
+    margin-right: 5px; /* Spacing between tabs */
+}
+.tab-link:hover {
+    color: var(--text-color-primary);
+}
+.tab-link.active {
+    color: var(--text-color-primary);
+    border-bottom-color: var(--text-color-primary);
+    font-weight: 600;
+}
+
+.tab-pane { display: none; }
+.tab-pane.active { display: block; }
+
+/* --- Structured Info Display --- */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px; /* More gap */
+}
+.info-grid .info-item {
+    padding: 15px;
+    background-color: #fdfdfd; /* Slightly off-white cards within cards */
+    border: 1px solid var(--border-color-light);
+    border-radius: 6px;
+}
+.info-grid .info-item strong {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--text-color-primary);
+    font-weight: 600;
+    font-size: 0.9em;
+    text-transform: uppercase; /* Like Fono labels */
+    letter-spacing: 0.5px;
+}
+.info-grid .info-item span {
+    font-size: 1.1em; /* Larger value text */
+    font-weight: 500;
+}
+
+
+.info-list { list-style: none; padding-left: 0; }
+.info-list-item {
+    margin-bottom: 12px;
+    padding: 12px;
+    background-color: #fdfdfd;
+    border: 1px solid var(--border-color-light);
+    border-radius: 6px;
+}
+.info-list-item strong {
+    display: block; margin-bottom: 5px; font-weight: 600;
+    font-size: 0.9em; text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+table.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+.styled-table th, .styled-table td {
+    border: 1px solid var(--border-color-light);
+    text-align: left;
+    padding: 12px 15px; /* More padding */
+}
+.styled-table th {
+    background-color: #f9f9f9;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.85em;
+}
+.styled-table tr:nth-child(even) { background-color: transparent; } /* No alternating color for stark B&W */
+
+pre {
+    background-color: #f9f9f9;
+    color: var(--text-color-primary);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 0.85em; /* Smaller for code */
+    line-height: 1.6;
+    border: 1px solid var(--border-color-light);
+}
+
+/* --- Visualization --- */
+.visualization-wrapper {
+    width: 100%;
+    height: 550px; /* Fixed height for consistency */
+    border: 1px solid var(--border-color-medium);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    background-color: #fdfdfd; /* Light bg for graph area */
+}
+#call-graph-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+#call-graph-svg .node circle {
+    stroke: var(--background-color);
+    stroke-width: 2px; /* Thicker stroke for clarity */
+    cursor: grab;
+}
+#call-graph-svg .node circle:active { cursor: grabbing; }
+#call-graph-svg .node text {
+    font-size: 9px; /* Smaller for mono font in graph */
+    fill: var(--text-color-primary);
+    pointer-events: none;
+    text-anchor: middle;
+    dy: -0.8em; /* Adjusted positioning */
+    font-weight: 500;
+}
+#call-graph-svg .link {
+    stroke: #777777;
+    stroke-opacity: 0.5; /* Slightly less opaque */
+}
+.stats-bar {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: var(--text-color-secondary);
+    text-align: center;
+    padding: 8px;
+    background-color: #f9f9f9;
+    border-top: 1px solid var(--border-color-light);
+}
+
+.app-footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color-light);
+    font-size: 0.9em;
+    color: #555555; /* Darker gray for footer text */
+}
+.app-footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px 0; /* Adjusted padding for better spacing */
+    border-top: 1px solid var(--border-color-light);
+    font-size: 0.9em;
+    color: var(--text-color-secondary); /* Using CSS variable */
+}
+
+.app-footer p {
+    margin-bottom: 5px; /* Add a little space between paragraphs if you have multiple */
+}
+
+.app-footer a {
+    color: var(--text-color-primary); /* Black link text */
+    text-decoration: none; /* Remove underline */
+    font-weight: 500; /* Slightly bolder for emphasis */
+}
+
+.app-footer a:hover {
+    text-decoration: underline; /* Underline on hover for discoverability */
+    color: var(--text-color-primary); /* Keep it black on hover */
+}

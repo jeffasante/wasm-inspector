@@ -1,0 +1,8 @@
+/target
+
+minimal.wasm   
+wllama.wasm
+/ignore
+analysis.json
+combine.sh
+test-wasm

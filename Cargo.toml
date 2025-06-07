@@ -1,0 +1,46 @@
+[package]
+name = "wasm-inspector"
+version = "0.1.0"
+edition = "2021" 
+authors = ["Jeffrey Asante <jeffaoduro@gmail.com>"]
+description = "WASM Module Inspector & Debugger"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/jeffasante/wasm-inspector"
+
+# Defines the library crate (src/lib.rs and its modules)
+[lib]
+crate-type = ["cdylib", "rlib"] # cdylib for WASM, rlib for native Rust library usage
+
+[dependencies]
+# Core WASM parsing for the analyzer
+wasmparser = "0.118" # As used in your parser.rs
+
+# Serialization for API responses and web communication
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Error handling
+anyhow = "1.0"
+
+# CLI support (made optional)
+clap = { version = "4.4", features = ["derive"], optional = true } # Using a slightly more recent clap version
+wasm-bindgen = "0.2.92"
+
+# Dependencies for compiling this crate to WebAssembly
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+wasm-bindgen = "0.2.92" # Updated to a recent version
+console_error_panic_hook = { version = "0.1.7", optional = true }
+
+[features]
+default = ["cli"] # By default, enable CLI features
+cli = ["dep:clap"] # The 'cli' feature enables the 'clap' dependency
+web = [ # The 'web' feature enables wasm-bindgen related features for the library
+    "console_error_panic_hook", # Useful for debugging WASM in the browser
+    # Add other web-specific library features here if needed
+]
+
+# Defines the command-line interface binary
+[[bin]]
+name = "wasm-inspector-cli" # Clear name for the CLI executable
+path = "src/main.rs"
+required-features = ["cli"] # This binary requires the 'cli' feature (and thus 'clap')
