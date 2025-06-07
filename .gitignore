@@ -1,4 +1,5 @@
 /target
+.DS_Store
 
 minimal.wasm   
 wllama.wasm
