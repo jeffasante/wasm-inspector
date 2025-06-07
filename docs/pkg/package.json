@@ -1,0 +1,24 @@
+{
+  "name": "wasm-inspector",
+  "type": "module",
+  "collaborators": [
+    "Jeffrey Asante <jeffaoduro@gmail.com>"
+  ],
+  "description": "WASM Module Inspector & Debugger",
+  "version": "0.1.0",
+  "license": "MIT OR Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeffasante/wasm-inspector"
+  },
+  "files": [
+    "wasm_inspector_bg.wasm",
+    "wasm_inspector.js",
+    "wasm_inspector.d.ts"
+  ],
+  "main": "wasm_inspector.js",
+  "types": "wasm_inspector.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
