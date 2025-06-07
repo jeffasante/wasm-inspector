@@ -7,3 +7,5 @@ wllama.wasm
 analysis.json
 combine.sh
 test-wasm
+
+.vscode
