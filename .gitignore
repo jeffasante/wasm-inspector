@@ -9,3 +9,5 @@ combine.sh
 test-wasm
 
 .vscode
+
+/web
